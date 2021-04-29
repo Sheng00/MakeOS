@@ -1,0 +1,7 @@
+Created Folder Backup of GraphicsOS
+Removed un-needed spaces
+Created Backup File
+Built ASM file
+Created BIN file
+Created IMG file
+Openned Operating System Folder...

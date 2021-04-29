@@ -1,0 +1,11 @@
+printf:
+lodsb
+cmp al, 00h
+je __eoPrint__
+
+mov ah, 0eh
+int 10h
+call printf
+
+__eoPrint__:
+ret

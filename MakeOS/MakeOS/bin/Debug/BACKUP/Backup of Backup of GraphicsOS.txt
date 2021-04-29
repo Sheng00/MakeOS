@@ -1,0 +1,20 @@
+BootSector
+DoneBL
+
+call __enterGraphics13__
+
+Set RV al 50
+Set RV bx 36
+Set RV cx 0
+Set RV dx 0
+call draw_square
+
+call __readMouse__
+Halt
+
+
+include 'drawsquare.txt'
+include 'graphics.txt'
+include 'printf.txt'
+include 'mouse.txt'
+DoneBS

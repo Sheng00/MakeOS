@@ -1,0 +1,40 @@
+Function _cursor
+Set RV ah 00
+ASM int 16h
+IF RV al je 41 _left
+IF RV al je 61 _left
+
+IF RV al je 44 _right
+IF RV al je 64 _right
+
+IF RV al je 57 _up
+IF RV al je 77 _up
+
+IF RV al je 53 _down
+IF RV al je 73 _down
+Goto _cursor
+
+Function _left
+Set RV ah 02
+sub dl 1
+ASM int 10h
+Goto _cursor
+
+Function _right
+Set RV ah 02
+sub dl 1
+ASM int 10h
+jmp _cursor
+
+Function _up
+Set RV ah 02
+sub dh 1
+ASM int 10h
+Goto _cursor
+
+Function _down
+Set RV ah 02
+add dh 1
+ASM int 10h
+Goto _cursor
+

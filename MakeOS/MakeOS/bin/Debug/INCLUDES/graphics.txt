@@ -1,0 +1,143 @@
+; Modes Help ;
+; http://stanislavs.org/helppc/int_10-0.html ;
+
+__writePixel__:
+; ARGS
+; AL - Color (Set RV al 0F)  (white)
+; BH - Page (Set RV bh 0)  (Page 0)
+; CX - X Location (Set RV cx 2)  (X: 2 Hex)
+; DX - Y Location (Set RV dx 5)  (Y: 5 Hex)
+
+mov ah, 0Ch
+mov bh, 0h
+int 10h
+ret
+
+__setBG__:
+; ARGS
+;BL - Color (Set RV bl 00)  (black)
+
+mov ah, 0Bh
+mov bh, 00h
+int 10h
+ret
+
+__enterGraphics0__:
+mov ah, 00h
+mov al, 00h
+int 10h
+ret
+
+__enterGraphics1__:
+mov ah, 00h
+mov al, 01h
+int 10h
+ret
+
+__enterGraphics2__:
+mov ah, 00h
+mov al, 02h
+int 10h
+ret
+
+__enterGraphics3__:
+mov ah, 00h
+mov al, 03h
+int 10h
+ret
+
+__enterGraphics4__:
+mov ah, 00h
+mov al, 04h
+int 10h
+ret
+
+__enterGraphics5__:
+mov ah, 00h
+mov al, 05h
+int 10h
+ret
+
+__enterGraphics6__:
+mov ah, 00h
+mov al, 06h
+int 10h
+ret
+
+__enterGraphics7__:
+mov ah, 00h
+mov al, 07h
+int 10h
+ret
+
+__enterGraphics8__:
+mov ah, 00h
+mov al, 08h
+int 10h
+ret
+
+__enterGraphics9__:
+mov ah, 00h
+mov al, 09h
+int 10h
+ret
+
+__enterGraphics0A__:
+mov ah, 00h
+mov al, 0Ah
+int 10h
+ret
+
+__enterGraphics0B__:
+mov ah, 00h
+mov al, 0Bh
+int 10h
+ret
+
+__enterGraphics0C__:
+mov ah, 00h
+mov al, 0Ch
+int 10h
+ret
+
+__enterGraphics0D__:
+mov ah, 00h
+mov al, 0Dh
+int 10h
+ret
+
+__enterGraphics0E__:
+mov ah, 00h
+mov al, 0Eh
+int 10h
+ret
+
+__enterGraphics0F__:
+mov ah, 00h
+mov al, 0Fh
+int 10h
+ret
+
+__enterGraphics10__:
+mov ah, 00h
+mov al, 10h
+int 10h
+ret
+
+__enterGraphics11__:
+mov ah, 00h
+mov al, 11h
+int 10h
+ret
+
+__enterGraphics12__:
+mov ah, 00h
+mov al, 12h
+int 10h
+ret
+
+__enterGraphics13__:
+mov ah, 00h
+mov al, 13h
+int 10h
+ret

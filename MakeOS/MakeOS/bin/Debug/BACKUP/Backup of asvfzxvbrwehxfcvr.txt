@@ -1,0 +1,17 @@
+BootSector
+DoneBL
+
+Page 0
+Reset bh
+WaitS 2
+print Test123
+Cursor Position 0 1
+WaitS 2
+print 321tseT
+WaitS 1
+Pixel 4F 40 0
+Halt
+
+include wait
+include printf
+DoneBS

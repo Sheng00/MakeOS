@@ -1,0 +1,29 @@
+draw_triangle:
+; BX - Height
+; DL - Width
+; AL - Colour
+; cx - X Start
+; dx - Y Start
+call printTriX
+
+printTriX:
+inc cx
+call __writePixel__
+push ax
+movzx ax, dl
+cmp cx, ax
+pop ax
+jng printTriX
+jmp printTriY
+ret
+
+printTriY:
+xor cx, cx
+add dx, 1d
+cmp dx, bx
+jge doneDrawTriangle
+jmp printTriX
+
+doneDrawTriangle:
+pop dx
+ret

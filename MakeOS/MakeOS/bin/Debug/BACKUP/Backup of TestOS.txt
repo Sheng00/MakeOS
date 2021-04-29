@@ -1,0 +1,152 @@
+org 0x7c00
+mov ah, 02h
+mov al, 10h
+mov dl, 0h
+mov ch, 0
+mov dh, 0
+mov cl, 2
+mov bx, kernal_load
+int 13h
+cli
+jmp kernal_load
+times 510 - ($-$$) db 0
+dw 0xAA55
+
+kernal_load:
+call login
+jmp $
+login:
+mov ah, 05h
+mov al, 0h
+int 10h
+xor bh, bh
+call blackScreen
+call printLogo
+call loginBar
+mov ah, 00h
+int 16h
+cmp al, 31h
+je success
+mov ah, 02h
+mov dh, 21d
+mov dl, 10d
+int 10h
+mov si, var_0
+call printf
+mov bp, 6000d
+mov si, 6000d
+call waitTime
+jmp login
+success:
+mov ah, 05h
+mov al, 1h
+int 10h
+call _cursor_print
+loginBar:
+mov ah, 02h
+mov dh, 20d
+mov dl, 3d
+int 10h
+mov si, var_1
+call printf
+mov ah, 02h
+mov dh, 20d
+mov dl, 10d
+int 10h
+mov ah, 09h
+mov cx, 8d
+mov al, 20h
+mov bl, 73h
+int 10h
+ret
+printLogo:
+mov ah, 02h
+mov dh, 2d
+mov dl, 33d
+int 10h
+mov si, var_2
+call printf
+ret
+blackScreen:
+mov ah, 09h
+mov cx, 2000d
+mov al, 20h
+mov bl, 0Fh
+int 10h
+ret
+waitTime:
+call startWaitTime
+ret
+startWaitTime:
+dec bp
+nop
+jnz startWaitTime
+dec si
+cmp si, 0
+jnz startWaitTime
+ret
+
+printf:
+lodsb
+cmp al, 00h
+je __eoPrint__
+mov ah, 0eh
+int 10h
+jmp printf
+
+__eoPrint__: 
+ret
+_cursor:
+mov ah, 00h
+int 16h
+cmp al, 41h
+je _left
+cmp al, 61h
+je _left
+cmp al, 44h
+je _right
+cmp al, 64h
+je _right
+cmp al, 57h
+je _up
+cmp al, 77h
+je _up
+cmp al, 53h
+je _down
+cmp al, 73h
+je _down
+jmp _cursor
+
+_left:
+mov ah, 02h
+dec dl
+int 10h
+jmp _cursor
+_right:
+mov ah, 02h
+inc dl
+int 10h
+jmp _cursor
+_up:
+mov ah, 02h
+dec dh
+int 10h
+jmp _cursor
+_down:
+mov ah, 02h
+inc dh
+int 10h
+jmp _cursor
+
+_cursor_print:
+mov ah, 00h
+int 16h
+mov ah, 0eh
+int 10h
+jmp _cursor_print
+
+var_0: db 'Bad Login!', 00h
+var_1: db 'Login:', 00h
+var_2: db 'Welcome to TestOS!', 00h
+
+times 8192 - ($-$$) db 0

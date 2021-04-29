@@ -1,0 +1,7 @@
+Removed un-needed spaces
+Created Backup File
+Deleted old OS image file
+Built ASM file
+Created BIN file
+Created IMG file
+Openned Operating System Folder...

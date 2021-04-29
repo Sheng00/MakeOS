@@ -1,0 +1,11 @@
+Function waitTime
+call startWaitTime
+Return
+
+Function startWaitTime
+sub bp 1
+ASM nop
+ASM jnz startWaitTime
+sub si 1
+IF RV si jnz 0 startWaitTime
+Return

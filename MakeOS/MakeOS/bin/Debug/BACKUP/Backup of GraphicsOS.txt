@@ -1,0 +1,45 @@
+BootSector
+DoneBL
+
+call __enterGraphics13__
+asm mov al, 50h
+asm mov bx, 20d
+asm mov cx, 0d
+asm mov dx, 0d
+call draw_square
+Halt
+
+
+include 'drawtriangle.txt'
+include 'drawsquare.txt'
+include 'graphics.txt'
+include 'printf.txt'
+DoneBS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

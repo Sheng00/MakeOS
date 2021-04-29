@@ -1,0 +1,1 @@
+copy /b "BUILD\My Operating System\My Operating System.bin" "BUILD\My Operating System\My Operating System.img"

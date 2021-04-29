@@ -1,0 +1,11 @@
+org 0x7c00
+call login
+call blackScreen
+call printLogo
+call loginBar
+call printf
+call waitTime
+call _cursor_print
+call printf
+call printf
+call startWaitTime

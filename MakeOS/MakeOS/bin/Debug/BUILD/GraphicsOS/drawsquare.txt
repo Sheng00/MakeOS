@@ -1,0 +1,25 @@
+draw_square:
+; BX - Square side-length
+; AL - Colour
+; cx - X Start
+; dx - Y Start
+sub bx, cx
+call printSqrX
+
+printSqrX:
+inc cx
+call __writePixel__
+cmp cx, bx
+jng printSqrX
+jmp printSqrY
+ret
+
+printSqrY:
+xor cx, cx
+add dx, 1d
+cmp dx, bx
+jge doneDrawSquare
+jmp printSqrX
+
+doneDrawSquare:
+ret
